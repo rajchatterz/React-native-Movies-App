@@ -27,14 +27,29 @@ const App = () => {
       </View>
       <View style={styles.buttomContainer}>
         <Image resizeMode='contain' style={styles.imageContainer} source={{uri:movieData.Poster}} />
-        <Text>{movieData.Title}</Text>
-        <Text>{movieData.Year}</Text>
+        <Text style={styles.movieTitle}>{movieData.Title}</Text>
+        <Text style={styles.movieYear}>{movieData.Year}</Text>
+        <Text>🌟{ movieData.imdbRating}</Text>
       </View>
     </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
+  movieTitle: {
+    top:-30,
+    fontSize: 45,
+    color: 'black',
+    fontWeight: '900',
+    
+  },
+  movieYear: {
+    fontSize: 40,
+    top: -40,
+    color: 'black',
+    fontWeight: '900',
+  },
+  
   container: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -66,7 +81,8 @@ const styles = StyleSheet.create({
     fontSize:16
   },
   buttomContainer: {
-    
+    alignItems: 'center',
+
   },
   imageContainer: {
     width: 300,
