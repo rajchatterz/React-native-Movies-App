@@ -6,7 +6,7 @@ const App = () => {
   const [searchData, setSearchData] = useState('')
   const fetchData = async() => {
     try {
-      const response =  await axios.get(`https://www.omdbapi.com/?t=${searchData}&apikey=483ea4bc`)
+      const response =  await axios.get(`https://www.omdbapi.com/?t=${searchData}&apikey=${Add your api}`)
       setMovieData(response.data)
     } catch (error) {
       console.log(error)
