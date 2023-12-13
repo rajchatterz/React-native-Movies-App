@@ -16,6 +16,13 @@ const App = () => {
     fetchData()
     setSearchData('')
   }
+  if (!movieData) {
+    return (
+      <View>
+        <Text>Not Found</Text>
+      </View>
+    )
+  }
   
   return (
     <SafeAreaView style={styles.heroContainer}>
@@ -29,15 +36,20 @@ const App = () => {
         <Image resizeMode='contain' style={styles.imageContainer} source={{uri:movieData.Poster}} />
         <Text style={styles.movieTitle}>{movieData.Title}</Text>
         <Text style={styles.movieYear}>{movieData.Year}</Text>
-        <Text>🌟{ movieData.imdbRating}</Text>
+        <Text style={styles.movieRating}>🌟{movieData.imdbRating}</Text>
+        <Text style={styles.boxOffice}>{movieData.BoxOffice}</Text>
       </View>
     </SafeAreaView>
   )
 }
 
 const styles = StyleSheet.create({
+  boxOffice: {
+    fontSize: 50,
+    fontWeight: '900',
+  },
   movieTitle: {
-    top:-30,
+    top:-10,
     fontSize: 45,
     color: 'black',
     fontWeight: '900',
@@ -45,9 +57,15 @@ const styles = StyleSheet.create({
   },
   movieYear: {
     fontSize: 40,
-    top: -40,
+    top: -10,
     color: 'black',
     fontWeight: '900',
+  },
+  movieRating: {
+    fontSize: 40,
+    right: 7,
+    top: -10,
+    color: 'black',
   },
   
   container: {
